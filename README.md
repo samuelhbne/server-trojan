@@ -5,8 +5,8 @@ Yet another unofficial [Trojan](https://github.com/trojan-gfw/trojan) server ins
 ## [Optional] How to build server-trojan docker image
 
 ```shell
-$ git clone https://github.com/samuelhbne/vpn-launchpad.git
-$ cd vpn-launchpad/server-trojan
+$ git clone https://github.com/samuelhbne/server-trojan.git
+$ cd server-trojan
 $ docker build -t samuelhbne/server-trojan:amd64 -f Dockerfile.amd64 .
 ...
 ```

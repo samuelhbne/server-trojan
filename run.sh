@@ -4,7 +4,7 @@ usage() {
 	echo "server-trojan -d|--domain <domain-name> -w|--password <password> [-p|--port <port-num>] [-f|--fake <fake-domain>] [-k|--hook <hook-url>]"
 	echo "    -d|--domain <domain-name> Trojan server domain name"
 	echo "    -w|--password <password>  Password for Trojan service access"
-	echo "    -p|--port <port-num>      [Optional] Port number for incoming Trojan connection"
+	echo "    -p|--port <port-num>      [Optional] Port number for incoming Trojan connection, default 443"
 	echo "    -f|--fake <fake-domain>   [Optional] Fake domain name when access Trojan without correct password"
 	echo "    -k|--hook <hook-url>      [Optional] URL to be hit before server execution, for DDNS update or notification"
 }

@@ -22,7 +22,7 @@ $ docker run --rm -it samuelhbne/server-trojan:amd64
 server-trojan -d|--domain <domain-name> -w|--password <password> [-p|--port <port-num>] [-f|--fake <fake-domain>] [-k|--hook <hook-url>]
     -d|--domain <domain-name> Trojan server domain name
     -w|--password <password>  Password for Trojan service access
-    -p|--port <port-num>      [Optional] Port number for incoming Trojan connection
+    -p|--port <port-num>      [Optional] Port number for incoming Trojan connection, default 443
     -f|--fake <fake-domain>   [Optional] Fake domain name when access Trojan without correct password
     -k|--hook <hook-url>      [Optional] URL to be hit before server execution, for DDNS update or notification
 $ docker run --name server-trojan -p 80:80 -p 8443:443 -d samuelhbne/server-trojan:amd64 -d my-domain.com -w my-secret
@@ -51,7 +51,7 @@ $ docker run --rm -it samuelhbne/proxy-trojan:amd64
 proxy-trojan -d|--domain <trojan-domain> -w|--password <password> [-p|--port <port-number>]
     -d|--domain <trojan-domain>   Trojan server domain name
     -w|--password <password>      Password for Trojan server access
-    -p|--port <port-num>          [Optional] Port number for Trojan server connection
+    -p|--port <port-num>          [Optional] Port number for Trojan server connection, default 443
 $ docker run --name proxy-trojan -p 1080:1080 -p 65353:53/udp -p 8123:8123 -d samuelhbne/proxy-trojan:amd64 -d my-domain.com -p 8443 -w my-secret
 ...
 

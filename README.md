@@ -1,6 +1,6 @@
 # server-trojan
 
-Yet another unofficial [Trojan](https://github.com/trojan-gfw/trojan) server installation scripts.
+Yet another unofficial [Trojan](https://github.com/trojan-gfw/trojan) server container with x86 and arm/arm64 (Raspberry Pi) support.
 
 ## [Optional] How to build server-trojan docker image
 

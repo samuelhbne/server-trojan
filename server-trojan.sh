@@ -63,7 +63,7 @@ echo
 
 sleep 5
 
-CNT=`docker ps|grep server-trojan -c`
+CNT=`docker ps|grep $IMGNAME:$TARGET|grep server-trojan -c`
 
 if [ $CNT > 0 ]; then
 	echo "server-trojan started."

@@ -2,6 +2,8 @@
 
 DIR=`dirname $0`
 DIR="$(cd $DIR; pwd)"
+SVCID="trojan"
+CTNNAME="server-$SVCID"
 IMGNAME="samuelhbne/server-trojan"
 ARCH=`uname -m`
 
@@ -35,7 +37,7 @@ while [[ $# > 0 ]]; do
 	esac
 done
 
-. $DIR/server-trojan.env
+. $DIR/$CTNNAME.env
 
 case $DNSUPDATE in
 	duckdns)
@@ -56,20 +58,20 @@ case $DNSUPDATE in
 		;;
 esac
 
-echo "Starting server-trojan ..."
-docker run --name server-trojan	-p 80:80 -p $TRJPORT:443 -d $IMGNAME:$TARGET \
+echo "Starting $CTNNAME..."
+docker run --name $CTNNAME	-p 80:80 -p $TRJPORT:443 -d $IMGNAME:$TARGET \
 	-d ${TRJDOMAIN} -w $TRJPASS -f $TRJFAKEDOMAIN
 echo
 
 sleep 5
 
-CNT=`docker ps|grep $IMGNAME:$TARGET|grep server-trojan -c`
+CNT=`docker ps|grep $IMGNAME:$TARGET|grep $CTNNAME -c`
 
 if [ $CNT > 0 ]; then
-	echo "server-trojan started."
+	echo "$CTNNAME started."
 	echo "Done"
 	exit 0
 else
-	echo "Starting server-trojan failed. Check detail with 'docker logs server-trojan'"
+	echo "Starting $CTNNAME failed. Check detail with \"docker logs $CTNNAME\""
 	exit 252
 fi

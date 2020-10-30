@@ -2,6 +2,8 @@
 
 Yet another unofficial [Trojan](https://github.com/trojan-gfw/trojan) server container with x86 and arm/arm64 (Raspberry Pi) support.
 
+![docker-build](https://github.com/samuelhbne/server-trojan/workflows/docker-build/badge.svg)
+
 ## [Optional] How to build server-trojan docker image
 
 ```shell

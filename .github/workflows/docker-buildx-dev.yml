@@ -1,4 +1,4 @@
-name: docker-buildx-laster-dev
+name: docker-buildx-latest-dev
 
 on:
   push:

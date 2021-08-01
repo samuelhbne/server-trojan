@@ -1,11 +1,11 @@
-name: docker-buildx-latest-dev
+name: docker-buildx-dev
 
 on:
   push:
     branches: dev
 
 jobs:
-  multi-arch-latest-dev:
+  multi-arch-dev:
     runs-on: ubuntu-latest
     steps:
       -
@@ -34,7 +34,7 @@ jobs:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push multi-arch latest
+        name: Build and push multi-arch dev
         uses: docker/build-push-action@v2
         with:
             context: .

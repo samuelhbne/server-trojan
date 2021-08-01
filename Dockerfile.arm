@@ -9,7 +9,7 @@ RUN apk add --no-cache --virtual .build-deps \
     && cd trojan && cmake . && make -j $(nproc) && strip -s trojan
 
 
-FROM arm32v6/alpine:3.12
+FROM arm32v6/alpine:3.14
 
 COPY --from=builder /trojan  /trojan
 
@@ -18,7 +18,8 @@ RUN apk add boost-system boost-program_options \
     socat curl openssl \
     && mkdir /config
 
-RUN curl -sSL https://get.acme.sh | sh
+RUN cd /root; curl -sSL "https://github.com/acmesh-official/acme.sh/archive/refs/tags/2.9.0.tar.gz"|tar zxvf -
+RUN cd /root; mv acme.sh-2.9.0 .acme.sh
 
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
